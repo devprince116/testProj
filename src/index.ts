@@ -2,6 +2,7 @@ import "reflect-metadata";
 import dotenv from "dotenv";
 import express from "express";
 import routes from "./routes";
+import comRoutes from "./routes";
 import { dbConnect } from "./services/database.service";
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 
 // configure router
 app.use("/api", routes);
+app.use("/api", comRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server is running on: ${PORT}`);
